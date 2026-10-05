@@ -1,0 +1,77 @@
+# PAWWS — Root .gitignore
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment files (NEVER commit secrets!)
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+!*.env.example
+
+# Credentials & Service Accounts
+*serviceAccount*.json
+*service-account*.json
+*credentials*.json
+*.pem
+*.keystore
+
+# Build outputs
+lib/
+dist/
+build/
+*.tsbuildinfo
+
+# Expo
+.expo/
+apps/customer/.expo/
+apps/partner/.expo/
+apps/customer/android/
+apps/customer/ios/
+apps/partner/android/
+apps/partner/ios/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+
+# Google Services
+apps/customer/google-services.json
+apps/customer/GoogleService-Info.plist
+apps/partner/google-services.json
+apps/partner/GoogleService-Info.plist
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Misc
+*.orig
+.cache/
+.tmp/
