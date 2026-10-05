@@ -1,0 +1,89 @@
+rules_version = '2';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PAWWS — Firebase Storage Security Rules
+// ─────────────────────────────────────────────────────────────────────────────
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // ─── HELPER FUNCTIONS ──────────────────────────────────────────────────
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isImageType() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isValidSize() {
+      return request.resource.size <= 5 * 1024 * 1024; // 5 MB
+    }
+
+    function isAdmin() {
+      return request.auth.token.role == 'admin';
+    }
+
+    // ─── USER PROFILE PHOTOS ───────────────────────────────────────────────
+    match /users/{userId}/profile.jpg {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.uid == userId &&
+                      isImageType() &&
+                      isValidSize();
+    }
+
+    // ─── PET PHOTOS ────────────────────────────────────────────────────────
+    match /pets/{ownerId}/{petId}/photo.jpg {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.uid == ownerId &&
+                      isImageType() &&
+                      isValidSize();
+    }
+
+    // ─── PARTNER LOGO & COVER ──────────────────────────────────────────────
+    match /partners/{partnerId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.token.partnerId == partnerId &&
+                      isImageType() &&
+                      isValidSize();
+    }
+
+    // ─── PARTNER DOCUMENTS ─────────────────────────────────────────────────
+    match /partners/{partnerId}/docs/{docName} {
+      allow read: if isAuthenticated() &&
+                     (request.auth.token.partnerId == partnerId || isAdmin());
+      allow write: if isAuthenticated() &&
+                      request.auth.token.partnerId == partnerId &&
+                      request.resource.size <= 10 * 1024 * 1024; // 10 MB for docs
+    }
+
+    // ─── SERVICE PHOTOS ────────────────────────────────────────────────────
+    match /services/{partnerId}/{serviceId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.token.partnerId == partnerId &&
+                      isImageType() &&
+                      isValidSize();
+    }
+
+    // ─── REVIEW PHOTOS ─────────────────────────────────────────────────────
+    match /reviews/{reviewId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && isImageType() && isValidSize();
+    }
+
+    // ─── CHAT IMAGES ───────────────────────────────────────────────────────
+    match /chats/{chatId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && isImageType() && isValidSize();
+    }
+
+    // ─── DEFAULT DENY ──────────────────────────────────────────────────────
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

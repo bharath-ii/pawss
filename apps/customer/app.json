@@ -1,0 +1,84 @@
+{
+  "expo": {
+    "name": "PAWWS",
+    "slug": "pawws-customer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFC0CB"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.bharathi.pawws",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAnImCrSBNXtKO0XfvHCyWLnSezcVuujIk"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "PAWWS needs your location to show nearby service providers.",
+        "NSLocationAlwaysUsageDescription": "PAWWS uses your location to track your service provider during active home-service bookings.",
+        "NSCameraUsageDescription": "PAWWS needs camera access to upload your pet's photo.",
+        "NSPhotoLibraryUsageDescription": "PAWWS needs photo library access to select images.",
+        "NSContactsUsageDescription": "PAWWS may access your contacts to set emergency contact details."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFC0CB"
+      },
+      "package": "com.bharathi.pawws",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAnImCrSBNXtKO0XfvHCyWLnSezcVuujIk"
+        }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED",
+        "RECORD_AUDIO"
+      ],
+      "googleServicesFile": "./google-services.json"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#FFC0CB",
+          "sounds": ["./assets/sounds/notification.wav"]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "PAWWS needs your location to find nearby pet service providers."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "PAWWS accesses your photos to let you upload pet photos."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "YOUR_EAS_PROJECT_ID"
+      }
+    },
+    "owner": "bharathi"
+  }
+}

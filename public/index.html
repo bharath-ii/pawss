@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAWWS — Pet Care Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #111; }
+    .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 40px 24px; background: linear-gradient(135deg, #FFF0F3 0%, #FFD6DE 100%); }
+    .logo-wrap { width: 88px; height: 88px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(233,30,140,0.15); margin-bottom: 24px; }
+    .logo-wrap svg { width: 50px; height: 50px; }
+    h1 { font-size: 48px; font-weight: 800; letter-spacing: 4px; color: #111; margin-bottom: 12px; }
+    .tagline { font-size: 18px; color: #555; margin-bottom: 40px; font-weight: 500; }
+    .links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .links a { padding: 12px 28px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: #E91E8C; color: #fff; }
+    .btn-primary:hover { background: #C2185B; }
+    .btn-outline { border: 2px solid #E91E8C; color: #E91E8C; }
+    .btn-outline:hover { background: #FFF0F3; }
+    .footer { text-align: center; padding: 24px; font-size: 13px; color: #888; border-top: 1px solid #eee; }
+    .footer a { color: #E91E8C; text-decoration: none; margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo-wrap">
+      <svg viewBox="0 0 24 24" fill="#E91E8C" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 11.5c-2.3 0-4.1 1.7-4.1 3.7 0 1.9 1.5 3.3 3.3 3.3.6 0 1.1-.3 1.5-.7.4.4.9.7 1.5.7 1.8 0 3.3-1.4 3.3-3.3 0-2-1.8-3.7-4.1-3.7z"/>
+        <ellipse cx="6.5" cy="7.5" rx="1.5" ry="2"/><ellipse cx="10" cy="5.5" rx="1.5" ry="2"/>
+        <ellipse cx="14" cy="5.5" rx="1.5" ry="2"/><ellipse cx="17.5" cy="7.5" rx="1.5" ry="2"/>
+      </svg>
+    </div>
+    <h1>PAWWS</h1>
+    <p class="tagline">India's Trusted Pet Care Marketplace</p>
+    <div class="links">
+      <a href="/privacy" class="btn-primary">Privacy Policy</a>
+      <a href="/terms" class="btn-outline">Terms of Service</a>
+      <a href="/refund" class="btn-outline">Refund Policy</a>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2026 PAWWS Pet Marketplace Technologies Pvt. Ltd.
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/refund">Refunds</a>
+    <a href="mailto:support@pawws.app">support@pawws.app</a>
+  </div>
+</body>
+</html>

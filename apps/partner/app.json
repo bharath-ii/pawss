@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "PAWWS Partner",
+    "slug": "pawws-partner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1A1A1A"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bharathi.pawwspartner",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAnImCrSBNXtKO0XfvHCyWLnSezcVuujIk"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1A1A1A"
+      },
+      "package": "com.bharathi.pawwspartner",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAnImCrSBNXtKO0XfvHCyWLnSezcVuujIk"
+        }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "VIBRATE"
+      ],
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": [
+      ["expo-notifications", { "icon": "./assets/notification-icon.png", "color": "#FFC0CB" }],
+      ["expo-location", { "locationAlwaysAndWhenInUsePermission": "PAWWS Partner uses your location for home service navigation." }]
+    ],
+    "extra": {
+      "eas": { "projectId": "YOUR_EAS_PROJECT_ID" }
+    }
+  }
+}

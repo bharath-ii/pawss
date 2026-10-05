@@ -1,0 +1,24 @@
+{
+  "name": "pawws",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PAWWS Pet Services Marketplace — Monorepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "firebase"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "customer": "cd apps/customer && expo start",
+    "partner": "cd apps/partner && expo start",
+    "admin": "cd apps/admin && npm run dev",
+    "functions:deploy": "cd firebase && npm run deploy",
+    "functions:dev": "cd firebase && npm run serve",
+    "rules:deploy": "firebase deploy --only firestore:rules,storage",
+    "deploy:all": "firebase deploy"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
